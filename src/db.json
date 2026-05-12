@@ -1,0 +1,123 @@
+{
+  "reviews": [
+    {
+      "id": 1,
+      "name": "Сергей Васильев",
+      "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
+      "text": "Я нахожусь в салоне ALTERA, всем советую, хороший коллектив, добрые люди, приветствуют, это не обман, они гарантия 100 % точно, чисто от меня, приезжайте! Мы приехали приобрести автомобиль в салон ALTERA.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "Анна Морозова",
+      "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
+      "text": "Отличный автосалон! Менеджеры очень вежливые и профессиональные. Помогли подобрать идеальный автомобиль. Очень довольна покупкой, рекомендую всем!",
+      "rating": 5
+    },
+    {
+      "id": 3,
+      "name": "Дмитрий Козлов",
+      "avatar": "https://randomuser.me/api/portraits/men/51.jpg",
+      "text": "Купил Skoda у них месяц назад. Всё прошло гладко, никаких проблем. Цены честные, условия прозрачные. Буду рекомендовать друзьям и семье.",
+      "rating": 4
+    },
+    {
+      "id": 4,
+      "name": "Елена Соколова",
+      "avatar": "https://randomuser.me/api/portraits/women/68.jpg",
+      "text": "Прекрасный сервис и внимательный персонал. Чувствуешь себя желанным гостем. Сделка прошла быстро и без лишних вопросов. Спасибо команде ALTERA!",
+      "rating": 5
+    },
+    {
+      "id": 5,
+      "name": "Иван Петров",
+      "avatar": "https://randomuser.me/api/portraits/men/76.jpg",
+      "text": "Долго выбирал автомобиль, но именно здесь нашёл то, что нужно. Хорошие цены, отзывчивые сотрудники. Однозначно советую всем, кто ищет надёжное авто.",
+      "rating": 4
+    }
+  ],
+  "credit": {
+    "benefit": 300000,
+    "loanAmount": {
+      "min": 0,
+      "max": 3000000,
+      "default": 0,
+      "marks": [0, 500000, 800000, 1100000, 1400000, 1700000, 2000000, 2300000, 2700000, 3000000]
+    },
+    "loanTerm": {
+      "min": 6,
+      "max": 84,
+      "default": 6,
+      "marks": [6, 12, 24, 36, 48, 60, 72, 84]
+    },
+    "cars": [
+      {
+        "brand": "Skoda",
+        "models": [
+          {
+            "name": "Octavia",
+            "configurations": ["Ambition", "Style", "RS"]
+          },
+          {
+            "name": "Superb",
+            "configurations": ["Ambition", "Style", "Laurin & Klement"]
+          },
+          {
+            "name": "Karoq",
+            "configurations": ["Active", "Ambition", "Style"]
+          },
+          {
+            "name": "Kodiaq",
+            "configurations": ["Ambition", "Style", "Sportline"]
+          },
+          {
+            "name": "Fabia",
+            "configurations": ["Active", "Ambition", "Monte Carlo"]
+          }
+        ]
+      },
+      {
+        "brand": "Nissan",
+        "models": [
+          {
+            "name": "Qashqai",
+            "configurations": ["Visia", "Acenta", "N-Connecta", "Tekna"]
+          },
+          {
+            "name": "X-Trail",
+            "configurations": ["Visia", "Acenta", "N-Connecta", "Tekna"]
+          },
+          {
+            "name": "Juke",
+            "configurations": ["Visia", "Acenta", "N-Design"]
+          },
+          {
+            "name": "Pathfinder",
+            "configurations": ["S", "SV", "SL", "Platinum"]
+          }
+        ]
+      },
+      {
+        "brand": "Volkswagen",
+        "models": [
+          {
+            "name": "Polo",
+            "configurations": ["Trendline", "Comfortline", "Highline", "GTI"]
+          },
+          {
+            "name": "Golf",
+            "configurations": ["Trendline", "Comfortline", "Highline", "R-Line"]
+          },
+          {
+            "name": "Tiguan",
+            "configurations": ["Trendline", "Comfortline", "Highline", "R-Line"]
+          },
+          {
+            "name": "Passat",
+            "configurations": ["Comfortline", "Highline", "Elegance"]
+          }
+        ]
+      }
+    ]
+  }
+}
