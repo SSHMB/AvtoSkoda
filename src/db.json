@@ -42,13 +42,33 @@
       "min": 0,
       "max": 3000000,
       "default": 0,
-      "marks": [0, 500000, 800000, 1100000, 1400000, 1700000, 2000000, 2300000, 2700000, 3000000]
+      "marks": [
+        0,
+        500000,
+        800000,
+        1100000,
+        1400000,
+        1700000,
+        2000000,
+        2300000,
+        2700000,
+        3000000
+      ]
     },
     "loanTerm": {
       "min": 6,
       "max": 84,
       "default": 6,
-      "marks": [6, 12, 24, 36, 48, 60, 72, 84]
+      "marks": [
+        6,
+        12,
+        24,
+        36,
+        48,
+        60,
+        72,
+        84
+      ]
     },
     "cars": [
       {
@@ -56,23 +76,43 @@
         "models": [
           {
             "name": "Octavia",
-            "configurations": ["Ambition", "Style", "RS"]
+            "configurations": [
+              "Ambition",
+              "Style",
+              "RS"
+            ]
           },
           {
             "name": "Superb",
-            "configurations": ["Ambition", "Style", "Laurin & Klement"]
+            "configurations": [
+              "Ambition",
+              "Style",
+              "Laurin & Klement"
+            ]
           },
           {
             "name": "Karoq",
-            "configurations": ["Active", "Ambition", "Style"]
+            "configurations": [
+              "Active",
+              "Ambition",
+              "Style"
+            ]
           },
           {
             "name": "Kodiaq",
-            "configurations": ["Ambition", "Style", "Sportline"]
+            "configurations": [
+              "Ambition",
+              "Style",
+              "Sportline"
+            ]
           },
           {
             "name": "Fabia",
-            "configurations": ["Active", "Ambition", "Monte Carlo"]
+            "configurations": [
+              "Active",
+              "Ambition",
+              "Monte Carlo"
+            ]
           }
         ]
       },
@@ -81,19 +121,38 @@
         "models": [
           {
             "name": "Qashqai",
-            "configurations": ["Visia", "Acenta", "N-Connecta", "Tekna"]
+            "configurations": [
+              "Visia",
+              "Acenta",
+              "N-Connecta",
+              "Tekna"
+            ]
           },
           {
             "name": "X-Trail",
-            "configurations": ["Visia", "Acenta", "N-Connecta", "Tekna"]
+            "configurations": [
+              "Visia",
+              "Acenta",
+              "N-Connecta",
+              "Tekna"
+            ]
           },
           {
             "name": "Juke",
-            "configurations": ["Visia", "Acenta", "N-Design"]
+            "configurations": [
+              "Visia",
+              "Acenta",
+              "N-Design"
+            ]
           },
           {
             "name": "Pathfinder",
-            "configurations": ["S", "SV", "SL", "Platinum"]
+            "configurations": [
+              "S",
+              "SV",
+              "SL",
+              "Platinum"
+            ]
           }
         ]
       },
@@ -102,22 +161,243 @@
         "models": [
           {
             "name": "Polo",
-            "configurations": ["Trendline", "Comfortline", "Highline", "GTI"]
+            "configurations": [
+              "Trendline",
+              "Comfortline",
+              "Highline",
+              "GTI"
+            ]
           },
           {
             "name": "Golf",
-            "configurations": ["Trendline", "Comfortline", "Highline", "R-Line"]
+            "configurations": [
+              "Trendline",
+              "Comfortline",
+              "Highline",
+              "R-Line"
+            ]
           },
           {
             "name": "Tiguan",
-            "configurations": ["Trendline", "Comfortline", "Highline", "R-Line"]
+            "configurations": [
+              "Trendline",
+              "Comfortline",
+              "Highline",
+              "R-Line"
+            ]
           },
           {
             "name": "Passat",
-            "configurations": ["Comfortline", "Highline", "Elegance"]
+            "configurations": [
+              "Comfortline",
+              "Highline",
+              "Elegance"
+            ]
           }
         ]
       }
     ]
-  }
+  },
+  "cars": [
+      {
+        "name": "Kia K5",
+        "price": 32000,
+        "korobka": "Automatic",
+        "kuzov": "Sedan",
+        "dvigatel": "2.5L",
+        "img": "https://source.unsplash.com/600x400/?kia,k5"
+      },
+        {
+          "name": "Hyundai Elantra",
+          "price": 24000,
+          "korobka": "Automatic",
+          "kuzov": "Sedan",
+          "dvigatel": "2.0L",
+          "img": "https://source.unsplash.com/600x400/?hyundai,elantra"
+        },
+        {
+          "name": "Skoda Octavia",
+          "price": 28000,
+          "korobka": "Manual",
+          "kuzov": "Liftback",
+          "dvigatel": "1.8L",
+          "img": "https://source.unsplash.com/600x400/?skoda,octavia"
+        },
+        {
+          "name": "Volkswagen Passat",
+          "price": 35000,
+          "korobka": "Automatic",
+          "kuzov": "Sedan",
+          "dvigatel": "2.0L",
+          "img": "https://source.unsplash.com/600x400/?volkswagen,passat"
+        },
+        {
+          "name": "Toyota Camry",
+          "price": 36000,
+          "korobka": "Automatic",
+          "kuzov": "Sedan",
+          "dvigatel": "2.5L",
+          "img": "https://source.unsplash.com/600x400/?toyota,camry"
+        },
+        {
+          "name": "Brilliance V5",
+          "price": 18000,
+          "korobka": "Manual",
+          "kuzov": "SUV",
+          "dvigatel": "1.6L",
+          "img": "https://source.unsplash.com/600x400/?brilliance,v5"
+        },
+        {
+          "name": "Changan CS35",
+          "price": 22000,
+          "korobka": "Automatic",
+          "kuzov": "Crossover",
+          "dvigatel": "1.6L",
+          "img": "https://source.unsplash.com/600x400/?changan,cs35"
+        },
+        {
+          "name": "Chery Tiggo 7",
+          "price": 26000,
+          "korobka": "Automatic",
+          "kuzov": "SUV",
+          "dvigatel": "1.5L",
+          "img": "https://source.unsplash.com/600x400/?chery,tiggo"
+        },
+        {
+          "name": "CheryExeed TXL",
+          "price": 34000,
+          "korobka": "Automatic",
+          "kuzov": "SUV",
+          "dvigatel": "2.0L",
+          "img": "https://source.unsplash.com/600x400/?exeed,txl"
+        },
+        {
+          "name": "Chevrolet Malibu",
+          "price": 30000,
+          "korobka": "Automatic",
+          "kuzov": "Sedan",
+          "dvigatel": "1.5L",
+          "img": "https://source.unsplash.com/600x400/?chevrolet,malibu"
+        },
+        {
+          "name": "Citroen C5",
+          "price": 27000,
+          "korobka": "Automatic",
+          "kuzov": "Sedan",
+          "dvigatel": "1.6L",
+          "img": "https://source.unsplash.com/600x400/?citroen,c5"
+        },
+        {
+          "name": "Datsun on-DO",
+          "price": 12000,
+          "korobka": "Manual",
+          "kuzov": "Sedan",
+          "dvigatel": "1.6L",
+          "img": "https://source.unsplash.com/600x400/?datsun,car"
+        },
+        {
+          "name": "Dongfeng Shine",
+          "price": 19000,
+          "korobka": "Manual",
+          "kuzov": "Sedan",
+          "dvigatel": "1.5L",
+          "img": "https://source.unsplash.com/600x400/?dongfeng,car"
+        },
+        {
+          "name": "DW Hower H3",
+          "price": 25000,
+          "korobka": "Automatic",
+          "kuzov": "SUV",
+          "dvigatel": "2.0L",
+          "img": "https://source.unsplash.com/600x400/?suv,car"
+        },
+        {
+          "name": "FAW Bestune",
+          "price": 21000,
+          "korobka": "Automatic",
+          "kuzov": "Sedan",
+          "dvigatel": "1.5L",
+          "img": "https://source.unsplash.com/600x400/?faw,bestune"
+        },
+        {
+          "name": "Ford Mustang",
+          "price": 55000,
+          "korobka": "Automatic",
+          "kuzov": "Coupe",
+          "dvigatel": "5.0L",
+          "img": "https://source.unsplash.com/600x400/?ford,mustang"
+        },
+        {
+          "name": "Foton Tunland",
+          "price": 29000,
+          "korobka": "Manual",
+          "kuzov": "Pickup",
+          "dvigatel": "2.4L",
+          "img": "https://source.unsplash.com/600x400/?pickup,truck"
+        },
+        {
+          "name": "GAC GS8",
+          "price": 37000,
+          "korobka": "Automatic",
+          "kuzov": "SUV",
+          "dvigatel": "2.0L",
+          "img": "https://source.unsplash.com/600x400/?gac,gs8"
+        },
+        {
+          "name": "Geely Monjaro",
+          "price": 33000,
+          "korobka": "Automatic",
+          "kuzov": "SUV",
+          "dvigatel": "2.0L",
+          "img": "https://source.unsplash.com/600x400/?geely,monjaro"
+        },
+        {
+          "name": "Great Wall Poer",
+          "price": 31000,
+          "korobka": "Automatic",
+          "kuzov": "Pickup",
+          "dvigatel": "2.0L",
+          "img": "https://source.unsplash.com/600x400/?greatwall,pickup"
+        },
+        {
+          "name": "Haima 7X",
+          "price": 24000,
+          "korobka": "Automatic",
+          "kuzov": "Minivan",
+          "dvigatel": "1.6L",
+          "img": "https://source.unsplash.com/600x400/?minivan,car"
+        },
+        {
+          "name": "Haval Jolion",
+          "price": 28000,
+          "korobka": "Automatic",
+          "kuzov": "Crossover",
+          "dvigatel": "1.5L",
+          "img": "https://source.unsplash.com/600x400/?haval,jolion"
+        },
+        {
+          "name": "Honda Accord",
+          "price": 39000,
+          "korobka": "Automatic",
+          "kuzov": "Sedan",
+          "dvigatel": "2.0L",
+          "img": "https://source.unsplash.com/600x400/?honda,accord"
+        },
+        {
+          "name": "JAC J7",
+          "price": 23000,
+          "korobka": "Manual",
+          "kuzov": "Liftback",
+          "dvigatel": "1.5L",
+          "img": "https://source.unsplash.com/600x400/?jac,j7"
+        },
+        {
+          "name": "Lada Vesta",
+          "price": 17000,
+          "korobka": "Manual",
+          "kuzov": "Sedan",
+          "dvigatel": "1.6L",
+          "img": "https://source.unsplash.com/600x400/?lada,vesta"
+        }
+      ]
 }
