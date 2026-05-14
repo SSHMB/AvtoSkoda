@@ -1,39 +1,18 @@
 {
   "reviews": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Сергей Васильев",
       "avatar": "https://randomuser.me/api/portraits/men/32.jpg",
       "text": "Я нахожусь в салоне ALTERA, всем советую, хороший коллектив, добрые люди, приветствуют, это не обман, они гарантия 100 % точно, чисто от меня, приезжайте! Мы приехали приобрести автомобиль в салон ALTERA.",
       "rating": 5
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Анна Морозова",
       "avatar": "https://randomuser.me/api/portraits/women/44.jpg",
       "text": "Отличный автосалон! Менеджеры очень вежливые и профессиональные. Помогли подобрать идеальный автомобиль. Очень довольна покупкой, рекомендую всем!",
       "rating": 5
-    },
-    {
-      "id": 3,
-      "name": "Дмитрий Козлов",
-      "avatar": "https://randomuser.me/api/portraits/men/51.jpg",
-      "text": "Купил Skoda у них месяц назад. Всё прошло гладко, никаких проблем. Цены честные, условия прозрачные. Буду рекомендовать друзьям и семье.",
-      "rating": 4
-    },
-    {
-      "id": 4,
-      "name": "Елена Соколова",
-      "avatar": "https://randomuser.me/api/portraits/women/68.jpg",
-      "text": "Прекрасный сервис и внимательный персонал. Чувствуешь себя желанным гостем. Сделка прошла быстро и без лишних вопросов. Спасибо команде ALTERA!",
-      "rating": 5
-    },
-    {
-      "id": 5,
-      "name": "Иван Петров",
-      "avatar": "https://randomuser.me/api/portraits/men/76.jpg",
-      "text": "Долго выбирал автомобиль, но именно здесь нашёл то, что нужно. Хорошие цены, отзывчивые сотрудники. Однозначно советую всем, кто ищет надёжное авто.",
-      "rating": 4
     }
   ],
   "credit": {
@@ -199,205 +178,291 @@
     ]
   },
   "cars": [
-      {
-        "name": "Kia K5",
-        "price": 32000,
-        "korobka": "Automatic",
-        "kuzov": "Sedan",
-        "dvigatel": "2.5L",
-        "img": "https://source.unsplash.com/600x400/?kia,k5"
-      },
-        {
-          "name": "Hyundai Elantra",
-          "price": 24000,
-          "korobka": "Automatic",
-          "kuzov": "Sedan",
-          "dvigatel": "2.0L",
-          "img": "https://source.unsplash.com/600x400/?hyundai,elantra"
-        },
-        {
-          "name": "Skoda Octavia",
-          "price": 28000,
-          "korobka": "Manual",
-          "kuzov": "Liftback",
-          "dvigatel": "1.8L",
-          "img": "https://source.unsplash.com/600x400/?skoda,octavia"
-        },
-        {
-          "name": "Volkswagen Passat",
-          "price": 35000,
-          "korobka": "Automatic",
-          "kuzov": "Sedan",
-          "dvigatel": "2.0L",
-          "img": "https://source.unsplash.com/600x400/?volkswagen,passat"
-        },
-        {
-          "name": "Toyota Camry",
-          "price": 36000,
-          "korobka": "Automatic",
-          "kuzov": "Sedan",
-          "dvigatel": "2.5L",
-          "img": "https://source.unsplash.com/600x400/?toyota,camry"
-        },
-        {
-          "name": "Brilliance V5",
-          "price": 18000,
-          "korobka": "Manual",
-          "kuzov": "SUV",
-          "dvigatel": "1.6L",
-          "img": "https://source.unsplash.com/600x400/?brilliance,v5"
-        },
-        {
-          "name": "Changan CS35",
-          "price": 22000,
-          "korobka": "Automatic",
-          "kuzov": "Crossover",
-          "dvigatel": "1.6L",
-          "img": "https://source.unsplash.com/600x400/?changan,cs35"
-        },
-        {
-          "name": "Chery Tiggo 7",
-          "price": 26000,
-          "korobka": "Automatic",
-          "kuzov": "SUV",
-          "dvigatel": "1.5L",
-          "img": "https://source.unsplash.com/600x400/?chery,tiggo"
-        },
-        {
-          "name": "CheryExeed TXL",
-          "price": 34000,
-          "korobka": "Automatic",
-          "kuzov": "SUV",
-          "dvigatel": "2.0L",
-          "img": "https://source.unsplash.com/600x400/?exeed,txl"
-        },
-        {
-          "name": "Chevrolet Malibu",
-          "price": 30000,
-          "korobka": "Automatic",
-          "kuzov": "Sedan",
-          "dvigatel": "1.5L",
-          "img": "https://source.unsplash.com/600x400/?chevrolet,malibu"
-        },
-        {
-          "name": "Citroen C5",
-          "price": 27000,
-          "korobka": "Automatic",
-          "kuzov": "Sedan",
-          "dvigatel": "1.6L",
-          "img": "https://source.unsplash.com/600x400/?citroen,c5"
-        },
-        {
-          "name": "Datsun on-DO",
-          "price": 12000,
-          "korobka": "Manual",
-          "kuzov": "Sedan",
-          "dvigatel": "1.6L",
-          "img": "https://source.unsplash.com/600x400/?datsun,car"
-        },
-        {
-          "name": "Dongfeng Shine",
-          "price": 19000,
-          "korobka": "Manual",
-          "kuzov": "Sedan",
-          "dvigatel": "1.5L",
-          "img": "https://source.unsplash.com/600x400/?dongfeng,car"
-        },
-        {
-          "name": "DW Hower H3",
-          "price": 25000,
-          "korobka": "Automatic",
-          "kuzov": "SUV",
-          "dvigatel": "2.0L",
-          "img": "https://source.unsplash.com/600x400/?suv,car"
-        },
-        {
-          "name": "FAW Bestune",
-          "price": 21000,
-          "korobka": "Automatic",
-          "kuzov": "Sedan",
-          "dvigatel": "1.5L",
-          "img": "https://source.unsplash.com/600x400/?faw,bestune"
-        },
-        {
-          "name": "Ford Mustang",
-          "price": 55000,
-          "korobka": "Automatic",
-          "kuzov": "Coupe",
-          "dvigatel": "5.0L",
-          "img": "https://source.unsplash.com/600x400/?ford,mustang"
-        },
-        {
-          "name": "Foton Tunland",
-          "price": 29000,
-          "korobka": "Manual",
-          "kuzov": "Pickup",
-          "dvigatel": "2.4L",
-          "img": "https://source.unsplash.com/600x400/?pickup,truck"
-        },
-        {
-          "name": "GAC GS8",
-          "price": 37000,
-          "korobka": "Automatic",
-          "kuzov": "SUV",
-          "dvigatel": "2.0L",
-          "img": "https://source.unsplash.com/600x400/?gac,gs8"
-        },
-        {
-          "name": "Geely Monjaro",
-          "price": 33000,
-          "korobka": "Automatic",
-          "kuzov": "SUV",
-          "dvigatel": "2.0L",
-          "img": "https://source.unsplash.com/600x400/?geely,monjaro"
-        },
-        {
-          "name": "Great Wall Poer",
-          "price": 31000,
-          "korobka": "Automatic",
-          "kuzov": "Pickup",
-          "dvigatel": "2.0L",
-          "img": "https://source.unsplash.com/600x400/?greatwall,pickup"
-        },
-        {
-          "name": "Haima 7X",
-          "price": 24000,
-          "korobka": "Automatic",
-          "kuzov": "Minivan",
-          "dvigatel": "1.6L",
-          "img": "https://source.unsplash.com/600x400/?minivan,car"
-        },
-        {
-          "name": "Haval Jolion",
-          "price": 28000,
-          "korobka": "Automatic",
-          "kuzov": "Crossover",
-          "dvigatel": "1.5L",
-          "img": "https://source.unsplash.com/600x400/?haval,jolion"
-        },
-        {
-          "name": "Honda Accord",
-          "price": 39000,
-          "korobka": "Automatic",
-          "kuzov": "Sedan",
-          "dvigatel": "2.0L",
-          "img": "https://source.unsplash.com/600x400/?honda,accord"
-        },
-        {
-          "name": "JAC J7",
-          "price": 23000,
-          "korobka": "Manual",
-          "kuzov": "Liftback",
-          "dvigatel": "1.5L",
-          "img": "https://source.unsplash.com/600x400/?jac,j7"
-        },
-        {
-          "name": "Lada Vesta",
-          "price": 17000,
-          "korobka": "Manual",
-          "kuzov": "Sedan",
-          "dvigatel": "1.6L",
-          "img": "https://source.unsplash.com/600x400/?lada,vesta"
-        }
-      ]
+    {
+      "name": "Kia K5",
+      "price": 32000,
+      "korobka": "Automatic",
+      "kuzov": "Sedan",
+      "dvigatel": "2.5L",
+      "img": "https://source.unsplash.com/600x400/?kia,k5",
+      "id": "nTYJHPtEnjU"
+    },
+    {
+      "name": "Hyundai Elantra",
+      "price": 24000,
+      "korobka": "Automatic",
+      "kuzov": "Sedan",
+      "dvigatel": "2.0L",
+      "img": "https://source.unsplash.com/600x400/?hyundai,elantra",
+      "id": "PkjBOZ0RtJI"
+    },
+    {
+      "name": "Skoda Octavia",
+      "price": 28000,
+      "korobka": "Manual",
+      "kuzov": "Liftback",
+      "dvigatel": "1.8L",
+      "img": "https://source.unsplash.com/600x400/?skoda,octavia",
+      "id": "6-hGtKkR99E"
+    },
+    {
+      "name": "Volkswagen Passat",
+      "price": 35000,
+      "korobka": "Automatic",
+      "kuzov": "Sedan",
+      "dvigatel": "2.0L",
+      "img": "https://source.unsplash.com/600x400/?volkswagen,passat",
+      "id": "CMer3mIsMj4"
+    },
+    {
+      "name": "Toyota Camry",
+      "price": 36000,
+      "korobka": "Automatic",
+      "kuzov": "Sedan",
+      "dvigatel": "2.5L",
+      "img": "https://source.unsplash.com/600x400/?toyota,camry",
+      "id": "PdQnByDCJFk"
+    },
+    {
+      "name": "Brilliance V5",
+      "price": 18000,
+      "korobka": "Manual",
+      "kuzov": "SUV",
+      "dvigatel": "1.6L",
+      "img": "https://source.unsplash.com/600x400/?brilliance,v5",
+      "id": "4mkaYbILaRA"
+    },
+    {
+      "name": "Changan CS35",
+      "price": 22000,
+      "korobka": "Automatic",
+      "kuzov": "Crossover",
+      "dvigatel": "1.6L",
+      "img": "https://source.unsplash.com/600x400/?changan,cs35",
+      "id": "tQtEuUcSb5E"
+    },
+    {
+      "name": "Chery Tiggo 7",
+      "price": 26000,
+      "korobka": "Automatic",
+      "kuzov": "SUV",
+      "dvigatel": "1.5L",
+      "img": "https://source.unsplash.com/600x400/?chery,tiggo",
+      "id": "WVQC4RjhWoA"
+    },
+    {
+      "name": "CheryExeed TXL",
+      "price": 34000,
+      "korobka": "Automatic",
+      "kuzov": "SUV",
+      "dvigatel": "2.0L",
+      "img": "https://source.unsplash.com/600x400/?exeed,txl",
+      "id": "_fzTbUUPtaM"
+    },
+    {
+      "name": "Chevrolet Malibu",
+      "price": 30000,
+      "korobka": "Automatic",
+      "kuzov": "Sedan",
+      "dvigatel": "1.5L",
+      "img": "https://source.unsplash.com/600x400/?chevrolet,malibu",
+      "id": "awBljmO8B0I"
+    },
+    {
+      "name": "Citroen C5",
+      "price": 27000,
+      "korobka": "Automatic",
+      "kuzov": "Sedan",
+      "dvigatel": "1.6L",
+      "img": "https://source.unsplash.com/600x400/?citroen,c5",
+      "id": "4DTB7vplIeI"
+    },
+    {
+      "name": "Datsun on-DO",
+      "price": 12000,
+      "korobka": "Manual",
+      "kuzov": "Sedan",
+      "dvigatel": "1.6L",
+      "img": "https://source.unsplash.com/600x400/?datsun,car",
+      "id": "XaQIPnPGC9I"
+    },
+    {
+      "name": "Dongfeng Shine",
+      "price": 19000,
+      "korobka": "Manual",
+      "kuzov": "Sedan",
+      "dvigatel": "1.5L",
+      "img": "https://source.unsplash.com/600x400/?dongfeng,car",
+      "id": "EfCAN0sn134"
+    },
+    {
+      "name": "DW Hower H3",
+      "price": 25000,
+      "korobka": "Automatic",
+      "kuzov": "SUV",
+      "dvigatel": "2.0L",
+      "img": "https://source.unsplash.com/600x400/?suv,car",
+      "id": "otWDc79GFtw"
+    },
+    {
+      "name": "FAW Bestune",
+      "price": 21000,
+      "korobka": "Automatic",
+      "kuzov": "Sedan",
+      "dvigatel": "1.5L",
+      "img": "https://source.unsplash.com/600x400/?faw,bestune",
+      "id": "9Tv1l-bA7pA"
+    },
+    {
+      "name": "Ford Mustang",
+      "price": 55000,
+      "korobka": "Automatic",
+      "kuzov": "Coupe",
+      "dvigatel": "5.0L",
+      "img": "https://source.unsplash.com/600x400/?ford,mustang",
+      "id": "2_E1JGrngic"
+    },
+    {
+      "name": "Foton Tunland",
+      "price": 29000,
+      "korobka": "Manual",
+      "kuzov": "Pickup",
+      "dvigatel": "2.4L",
+      "img": "https://source.unsplash.com/600x400/?pickup,truck",
+      "id": "OHCHmA3V33Q"
+    },
+    {
+      "name": "GAC GS8",
+      "price": 37000,
+      "korobka": "Automatic",
+      "kuzov": "SUV",
+      "dvigatel": "2.0L",
+      "img": "https://source.unsplash.com/600x400/?gac,gs8",
+      "id": "sWymZLHNyuI"
+    },
+    {
+      "name": "Geely Monjaro",
+      "price": 33000,
+      "korobka": "Automatic",
+      "kuzov": "SUV",
+      "dvigatel": "2.0L",
+      "img": "https://source.unsplash.com/600x400/?geely,monjaro",
+      "id": "-s4PF9Y3tRA"
+    },
+    {
+      "name": "Great Wall Poer",
+      "price": 31000,
+      "korobka": "Automatic",
+      "kuzov": "Pickup",
+      "dvigatel": "2.0L",
+      "img": "https://source.unsplash.com/600x400/?greatwall,pickup",
+      "id": "wwz_LrTrebo"
+    },
+    {
+      "name": "Haima 7X",
+      "price": 24000,
+      "korobka": "Automatic",
+      "kuzov": "Minivan",
+      "dvigatel": "1.6L",
+      "img": "https://source.unsplash.com/600x400/?minivan,car",
+      "id": "b1xjwGNek00"
+    },
+    {
+      "name": "Haval Jolion",
+      "price": 28000,
+      "korobka": "Automatic",
+      "kuzov": "Crossover",
+      "dvigatel": "1.5L",
+      "img": "https://source.unsplash.com/600x400/?haval,jolion",
+      "id": "qZGTCTmPXMw"
+    },
+    {
+      "name": "Honda Accord",
+      "price": 39000,
+      "korobka": "Automatic",
+      "kuzov": "Sedan",
+      "dvigatel": "2.0L",
+      "img": "https://source.unsplash.com/600x400/?honda,accord",
+      "id": "T44VdZmnLeI"
+    },
+    {
+      "name": "JAC J7",
+      "price": 23000,
+      "korobka": "Manual",
+      "kuzov": "Liftback",
+      "dvigatel": "1.5L",
+      "img": "https://source.unsplash.com/600x400/?jac,j7",
+      "id": "1TCWBXZ-ccg"
+    },
+    {
+      "name": "Lada Vesta",
+      "price": 17000,
+      "korobka": "Manual",
+      "kuzov": "Sedan",
+      "dvigatel": "1.6L",
+      "img": "https://source.unsplash.com/600x400/?lada,vesta",
+      "id": "O9I-YGU0hFw"
+    }
+  ],
+  "otzivlar": [
+    {
+      "id": "1",
+      "title": "Сайт отзывов",
+      "subtitle": "AutoLux Tashkent",
+      "recommend": 95,
+      "rating": 4.8,
+      "text": "Juda zo'r xizmat va sifatli mashinalar!"
+    },
+    {
+      "id": "2",
+      "title": "Сайт отзывов",
+      "subtitle": "CarZone",
+      "recommend": 88,
+      "rating": 4.3,
+      "text": "Tez yetkazib berish va yaxshi narxlar."
+    },
+    {
+      "id": "3",
+      "title": "Сайт отзывов",
+      "subtitle": "AutoLux Tashkent",
+      "recommend": 92,
+      "rating": 4.7,
+      "text": "Keng tanlov va ajoyib mijozlarga xizmat ko'rsatish."
+    },
+    {
+      "id": "4",
+      "title": "Сайт отзывов",
+      "subtitle": "CarZone",
+      "recommend": 85,
+      "rating": 4.2,
+      "text": "Yaxshi sifatli mashinalar va do'stona xodimlar."
+    },
+    {
+      "id": "5",
+      "title": "Сайт отзывов",
+      "subtitle": "AutoLux Tashkent",
+      "recommend": 90,
+      "rating": 4.5,
+      "text": "Mening yangi avtomobilimni shu yerda sotib oldim, juda mamnunman!"
+    },
+    {
+      "id": "cwVbBjRkUC0",
+      "title": "Сайт отзывов",
+      "subtitle": "sdhbhjchbds",
+      "recommend": 90,
+      "rating": 4,
+      "text": "dssssvhvsgdv",
+      "date": "2026-05-13"
+    },
+    {
+      "id": "wJo7rCi--m0",
+      "title": "Сайт отзывов",
+      "subtitle": "Auto Skoda",
+      "recommend": 90,
+      "rating": 4,
+      "text": "juda yaxshi sayt",
+      "date": "2026-05-14"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

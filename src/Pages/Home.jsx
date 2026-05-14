@@ -1,5 +1,13 @@
 import CarCatalog from "../Components/Card";
+import Collections from "../Components/Collections";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import PromoBannerDaisy from "../Components/Promobanne";
+import Antiqa from "../Components/Antiqa";
+import AutoKredit from "../Components/AutoKredit";
+import Otzivlar from "../Components/Otzivlar";
+import Footer from "../Components/Footer";
+
 
 const slides = [
   {
@@ -65,8 +73,19 @@ const brands = [
   { name: "Zotye", logo: "🚗" },
 ];
 
+const toBrandSlug = (name) =>
+  name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "");
+
 const bodyTypes = ["Sedan", "SUV", "Hatchback", "Minivan", "Pickup", "Coupe"];
 const gearTypes = ["Avtomat", "Mexanik", "Variator", "Robot"];
+
+const headerLinks = [
+  { label: "Подбор авто", href: "#podbor" },
+  { label: "О компании", href: "#company" },
+  { label: "Техцентр", href: "#techcenter" },
+  { label: "Отзывы", href: "#reviews" },
+  { label: "Контакты", href: "#contacts" },
+];
 
 const CAR_SVG = ({ color = "#CC0000" }) => (
   <svg viewBox="0 0 520 220" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-2xl">
@@ -163,8 +182,10 @@ export default function AbcAuto() {
 
           {/* Nav */}
           <nav className="hidden lg:flex gap-5 text-sm text-gray-700">
-            {["Подбор авто", "О компании", "Техцентр", "Отзывы", "Контакты"].map((n) => (
-              <a key={n} href="#" className={`hover:text-red-600 transition ${n === "Подбор авто" ? "text-red-600 font-medium" : ""}`}>{n}</a>
+            {headerLinks.map((item) => (
+              <a key={item.label} href={item.href} className={`hover:text-red-600 transition ${item.label === "Подбор авто" ? "text-red-600 font-medium" : ""}`}>
+                {item.label}
+              </a>
             ))}
           </nav>
 
@@ -201,7 +222,7 @@ export default function AbcAuto() {
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 flex items-center transition-all duration-700 ease-in-out bg-gradient-to-r ${slide.bg}`}
+            className={`absolute inset-0 flex items-center transition-all duration-700 ease-in-out bg-linear-to-r ${slide.bg}`}
             style={{
               opacity: idx === current ? 1 : 0,
               transform: `translateX(${(idx - current) * 100}%)`,
@@ -249,19 +270,22 @@ export default function AbcAuto() {
         </div>
       </div>
 
-      {/* BRANDS + FILTER */}
-      <div className="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
-        {/* Brands Grid */}
+
+
+
+      <div id="podbor" className="max-w-7xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8 scroll-mt-24">
+
         <div className="flex-1">
           <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2">
             {brands.map((b) => (
-              <button
+              <Link
                 key={b.name}
+                to={`/brand/${toBrandSlug(b.name)}`}
                 className="flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition text-sm text-gray-700 text-left border border-transparent hover:border-red-100"
               >
                 <span className="text-base">{b.logo}</span>
                 <span className="truncate font-medium">{b.name}</span>
-              </button>
+              </Link>
             ))}
           </div>
         </div>
@@ -359,8 +383,38 @@ export default function AbcAuto() {
           border: 2px solid white;
         }
       `}</style>
-        <CarCatalog />
+
+      <Collections />
+      <div id="company" className="scroll-mt-24">
+        <PromoBannerDaisy />
+      </div>
+      <Antiqa />
+      <div id="techcenter" className="scroll-mt-24">
+        <AutoKredit />
+      </div>
+      <div id="reviews" className="scroll-mt-24">
+        <Otzivlar />
+      </div>
+      <div id="contacts" className="max-w-7xl mx-auto px-4 py-12 scroll-mt-24">
+        <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <div className="text-sm uppercase tracking-[0.24em] text-gray-500 mb-2">Связаться с нами</div>
+              <h2 className="text-2xl font-bold text-gray-900">Готовы ответить на любые вопросы</h2>
+              <p className="mt-2 text-gray-600">Мы предлагаем помощь в подборе, пробеге, кредитах и сервисе.</p>
+            </div>
+            <div className="flex flex-col items-start gap-3 sm:items-end">
+              <a href="tel:+78005519431" className="text-xl font-bold text-red-600">+7 (800) 551-94-31</a>
+              <p className="text-sm text-gray-500">+7 (495) 292-18-67</p>
+              <button className="bg-red-600 text-white px-5 py-3 rounded-xl text-sm font-semibold hover:bg-red-700 transition">
+                ОБРАТНЫЙ ЗВОНОК
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Footer />
     </div>
-  
+
   );
 }
