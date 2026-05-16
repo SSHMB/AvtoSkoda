@@ -1,12 +1,4 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import Error404 from "./error404";
 
-const App = () => {
-  return (
-    <div>
-      <Outlet />
-    </div>
-  )
-}
-
-export default App
+// routes ichida:
+<Route path="*" element={<Error404 />} />
