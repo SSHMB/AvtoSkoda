@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import Home from './Pages/Home.jsx'
-
+import CreditFinancePage from './Pages/CreditFinancePage.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,14 +16,14 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Erorr />,
     children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: '/credit',
-        element: <Home />,
-      },
+  {
+  index: true,
+  element: <CreditFinancePage />,
+},
+{
+  path: '/credit',
+  element: <CreditFinancePage />,
+},
 
     ],
   },
