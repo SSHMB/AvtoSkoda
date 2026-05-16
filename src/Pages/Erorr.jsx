@@ -3,7 +3,7 @@ import React from 'react'
 const Erorr = () => {
     return (
         <div>
-dcefv
+            <h1>404 — Sahifa topilmadi</h1>
         </div>
     )
 }
