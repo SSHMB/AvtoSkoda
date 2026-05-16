@@ -1,4 +1,9 @@
-import Error404 from "./error404";
+import React from 'react'
 
-// routes ichida:
-<Route path="*" element={<Error404 />} />
+const App = () => {
+  return (
+    <div>App</div>
+  )
+}
+
+export default App

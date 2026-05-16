@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/credit',
-        element: <Home />,
+        element: <Home />,  
       },
 
     ],
