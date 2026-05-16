@@ -16,6 +16,7 @@ const router = createBrowserRouter([
     element: <App />,
     errorElement: <Erorr />,
     children: [
+<<<<<<< HEAD
   {
   index: true,
   element: <CreditFinancePage />,
@@ -24,6 +25,16 @@ const router = createBrowserRouter([
   path: '/credit',
   element: <CreditFinancePage />,
 },
+=======
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: '/credit',
+        element: <Home />,  
+      },
+>>>>>>> 0e71c585b9d900ce93014e8c21080ef909324fb7
 
     ],
   },
