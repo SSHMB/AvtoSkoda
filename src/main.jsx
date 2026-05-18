@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import Home from './Pages/Home.jsx'
+import Katalokavto from './Pages/Katalokavto.jsx'
+import dbData from "./db.json";
 
 import {
   createBrowserRouter,
@@ -23,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: '/credit',
         element: <Home />,
+      },
+      {
+        path: "/katalog",
+        element: <Katalokavto cars={dbData.cars} />,
       },
 
     ],

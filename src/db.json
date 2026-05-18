@@ -119,5 +119,246 @@
         ]
       }
     ]
-  }
+  },
+
+  "cars": [
+    {
+      "id": 1,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "1.6 MPI MT Active",
+      "price": 1615000,
+      "credit": 115000,
+      "year": 2023,
+      "mileage": 0,
+      "engine": 1.6,
+      "fuel_consumption": 5.3,
+      "speed": 190,
+      "power": 110,
+      "fuel": "Бензин",
+      "transmission": "Механика",
+      "color": "Белый",
+      "status": "предложение дня",
+      "badge_text": "Выгода до 300 000 ₽",
+      "gifts": [
+        "Оборудование в подарок",
+        "КАСКО в подарок",
+        "Комплект резины в подарок"
+      ],
+      "image": "/images/skoda-octavia-white.png"
+    },
+    {
+      "id": 2,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "1.6 MPI AT Ambition",
+      "price": 1749000,
+      "credit": 122000,
+      "year": 2023,
+      "mileage": 0,
+      "engine": 1.6,
+      "fuel_consumption": 6.1,
+      "speed": 190,
+      "power": 110,
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "color": "Серый",
+      "status": "спецпредложение",
+      "badge_text": "Выгода до 250 000 ₽",
+      "gifts": [
+        "Оборудование в подарок",
+        "КАСКО в подарок"
+      ],
+      "image": "/images/skoda-octavia-grey.png"
+    },
+    {
+      "id": 3,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "1.8 TSI AT Style",
+      "price": 1980000,
+      "credit": 138000,
+      "year": 2023,
+      "mileage": 0,
+      "engine": 1.8,
+      "fuel_consumption": 7.2,
+      "speed": 210,
+      "power": 180,
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "color": "Чёрный",
+      "status": "в наличии",
+      "badge_text": null,
+      "gifts": [
+        "Комплект резины в подарок"
+      ],
+      "image": "/images/skoda-octavia-black.png"
+    },
+    {
+      "id": 4,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "2.0 TDI MT Active",
+      "price": 1870000,
+      "credit": 130000,
+      "year": 2023,
+      "mileage": 0,
+      "engine": 2,
+      "fuel_consumption": 4.8,
+      "speed": 205,
+      "power": 150,
+      "fuel": "Дизель",
+      "transmission": "Механика",
+      "color": "Синий",
+      "status": "в наличии",
+      "badge_text": null,
+      "gifts": [
+        "Оборудование в подарок"
+      ],
+      "image": "/images/skoda-octavia-blue.png"
+    },
+    {
+      "id": 5,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "1.4 TSI DSG Elegance",
+      "price": 2105000,
+      "credit": 148000,
+      "year": 2024,
+      "mileage": 0,
+      "engine": 1.4,
+      "fuel_consumption": 5.9,
+      "speed": 200,
+      "power": 150,
+      "fuel": "Бензин",
+      "transmission": "Робот",
+      "color": "Красный",
+      "status": "предложение дня",
+      "badge_text": "Выгода до 180 000 ₽",
+      "gifts": [
+        "КАСКО в подарок",
+        "Комплект резины в подарок"
+      ],
+      "image": "/images/skoda-octavia-red.png"
+    },
+    {
+      "id": 6,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "2.0 TSI AT RS",
+      "price": 2450000,
+      "credit": 172000,
+      "year": 2024,
+      "mileage": 0,
+      "engine": 2,
+      "fuel_consumption": 8.1,
+      "speed": 250,
+      "power": 245,
+      "fuel": "Бензин",
+      "transmission": "Автомат",
+      "color": "Чёрный глянец",
+      "status": "спецпредложение",
+      "badge_text": "Выгода до 350 000 ₽",
+      "gifts": [
+        "Оборудование в подарок",
+        "КАСКО в подарок",
+        "Комплект резины в подарок"
+      ],
+      "image": "/images/skoda-octavia-rs-black.png"
+    },
+    {
+      "id": 7,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "1.6 MPI MT Active",
+      "price": 1615000,
+      "credit": 110000,
+      "year": 2023,
+      "mileage": 0,
+      "engine": 1.6,
+      "fuel_consumption": 5.3,
+      "speed": 190,
+      "power": 110,
+      "fuel": "Бензин",
+      "transmission": "Механика",
+      "color": "Серебристый",
+      "status": "в наличии",
+      "badge_text": null,
+      "gifts": [
+        "Оборудование в подарок"
+      ],
+      "image": "/images/skoda-octavia-silver.png"
+    },
+    {
+      "id": 8,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "2.0 TDI AT Style",
+      "price": 2210000,
+      "credit": 155000,
+      "year": 2024,
+      "mileage": 0,
+      "engine": 2,
+      "fuel_consumption": 5.1,
+      "speed": 218,
+      "power": 150,
+      "fuel": "Дизель",
+      "transmission": "Автомат",
+      "color": "Зелёный",
+      "status": "в наличии",
+      "badge_text": null,
+      "gifts": [
+        "КАСКО в подарок"
+      ],
+      "image": "/images/skoda-octavia-green.png"
+    },
+    {
+      "id": 9,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "1.8 TSI MT Ambition",
+      "price": 1920000,
+      "credit": 134000,
+      "year": 2023,
+      "mileage": 0,
+      "engine": 1.8,
+      "fuel_consumption": 6.8,
+      "speed": 210,
+      "power": 180,
+      "fuel": "Бензин",
+      "transmission": "Механика",
+      "color": "Белый перламутр",
+      "status": "спецпредложение",
+      "badge_text": "Выгода до 200 000 ₽",
+      "gifts": [
+        "Оборудование в подарок",
+        "Комплект резины в подарок"
+      ],
+      "image": "/images/skoda-octavia-white-pearl.png"
+    },
+    {
+      "id": 10,
+      "brand": "Skoda",
+      "model": "Octavia",
+      "spec": "1.4 TSI DSG Active",
+      "price": 1749000,
+      "credit": 122000,
+      "year": 2024,
+      "mileage": 0,
+      "engine": 1.4,
+      "fuel_consumption": 5.7,
+      "speed": 200,
+      "power": 150,
+      "fuel": "Бензин",
+      "transmission": "Робот",
+      "color": "Тёмно-синий",
+      "status": "в наличии",
+      "badge_text": null,
+      "gifts": [
+        "КАСКО в подарок"
+      ],
+      "image": "/images/skoda-octavia-darkblue.png"
+    }
+  ]
+
 }
