@@ -62,20 +62,20 @@ export default function CreditFinancePage() {
         </div>
 </header>
 
-      <section className="max-w-7xl mx-auto mt-5 px-4">
+      <section className="relative max-w-7xl mx-auto mt-5 px-4 pb-40 mb-40px">
         <div
-          className="relative overflow-hidden rounded-[30px] min-h-[560px] bg-cover bg-center"
+          className="relative overflow-visible rounded-[30px] min-h-[640px] bg-cover bg-center"
           style={{
             backgroundImage:
               "url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1600&auto=format&fit=crop')",
           }}
         >
-          <div className="absolute inset-0 bg-black/25"></div>
+          <div className="absolute inset-0 bg-black/35"></div>
 
           <div className="relative z-10 p-16 text-white">
             <div className="text-sm opacity-80 mb-8">Главная → Кредит и рассрочка → Экспресс-кредит</div>
 
-            <h1 className="text-6xl font-extrabold mb-5">Экспресс-кредит</h1>
+            <h1 className="text-6xl font-extrabold mb-5 leading-tight">Экспресс-кредит</h1>
 
             <p className="max-w-2xl text-xl leading-relaxed mb-10">
               Воплотите мечту о новом автомобиле уже сегодня с выгодным предложением. Заполните заявку, чтобы получить уникальное предложение.
@@ -86,7 +86,7 @@ export default function CreditFinancePage() {
               <div className="text-lg font-semibold leading-tight">По льготной<br />ставке</div>
             </div>
 
-            <div className="grid grid-cols-4 gap-8 max-w-5xl">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl">
               <Advantage icon="👍" text="Компенсируем дорогу до автосалона всем покупателям" />
               <Advantage icon="🕒" text="БЫСТРОЕ оформление КАСКО и ОСАГО за 15 минут" />
               <Advantage icon="%" text="Скидка 30 000 рублей" />
@@ -94,21 +94,23 @@ export default function CreditFinancePage() {
             </div>
           </div>
 
-          <div className="absolute bottom-[-40px] left-1/2 -translate-x-1/2 w-[90%] bg-white border-4 border-blue-400 rounded-md shadow-2xl p-8">
-            <div className="grid grid-cols-4 gap-5 items-center">
-              <div>
-                <h3 className="text-3xl font-bold leading-tight text-gray-900">Получите<br />специальную цену</h3>
-                <div className="inline-block mt-3 bg-red-600 text-white text-sm px-4 py-1 rounded-full font-bold">Только до 10.10.21</div>
+          <div className="absolute inset-x-0 bottom-0 z-20 flex justify-center">
+            <div className="w-full max-w-[92%] bg-white border-4 border-blue-400 rounded-[28px] shadow-2xl p-8 -translate-y-1/2">
+              <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 items-center">
+                <div>
+                  <h3 className="text-3xl font-bold leading-tight text-gray-900">Получите<br />специальную цену</h3>
+                  <div className="inline-block mt-3 bg-red-600 text-white text-sm px-4 py-1 rounded-full font-bold">Только до 10.10.21</div>
+                </div>
+
+                <input type="text" placeholder="Ваше имя" className="h-16 px-5 bg-gray-100 rounded-md outline-none border border-gray-200" />
+
+                <input type="text" placeholder="Ваш телефон" className="h-16 px-5 bg-gray-100 rounded-md outline-none border border-gray-200" />
+
+                <button className="h-16 bg-red-600 hover:bg-red-700 transition-all rounded-md text-white font-bold text-lg">ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ</button>
               </div>
 
-              <input type="text" placeholder="Ваше имя" className="h-16 px-5 bg-gray-100 rounded-md outline-none border border-gray-200" />
-
-              <input type="text" placeholder="Ваш телефон" className="h-16 px-5 bg-gray-100 rounded-md outline-none border border-gray-200" />
-
-              <button className="h-16 bg-red-600 hover:bg-red-700 transition-all rounded-md text-white font-bold text-lg">ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ</button>
+              <p className="text-xs text-gray-400 mt-4">Нажимая кнопку "Получить скидку" Вы даете согласие на обработку своих персональных данных</p>
             </div>
-
-            <p className="text-xs text-gray-400 mt-4">Нажимая кнопку "Получить скидку" Вы даете согласие на обработку своих персональных данных</p>
           </div>
         </div>
       </section>
@@ -377,7 +379,7 @@ export default function CreditFinancePage() {
           {advantages.map((item) => (
             <div 
               key={item.id} 
-              className="bg-gray-50/70 p-4 rounded-xl flex items-center gap-4 min-h-[110px] overflow-hidden"
+              className="bg-gray-50/70 p-4 rounded-xl flex items-center gap-4 min-h-110px overflow-hidden"
             >
               {item.type === 'text' ? (
           
