@@ -1,183 +1,169 @@
 import { useState } from "react";
 import db from "../db.json";
 
-const CAR_SVG = ({ color = "#1a1a1a" }) => (
-    <svg viewBox="0 0 340 150" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-xl">
-        <ellipse cx="170" cy="138" rx="155" ry="12" fill="rgba(0,0,0,0.10)" />
-        {/* Body */}
-        <path d="M30 105 Q38 78 80 65 L115 45 Q140 33 170 30 Q200 33 225 45 L260 65 Q302 78 310 105 L318 120 Q318 130 308 130 L32 130 Q22 130 22 120 Z" fill={color} />
-        {/* Roof */}
-        <path d="M112 65 Q138 28 170 24 Q202 28 228 65 Z" fill={color} />
-        <path d="M116 65 Q142 32 170 27 Q198 32 224 65" fill="rgba(255,255,255,0.10)" />
-        {/* Windows */}
-        <path d="M120 63 Q140 36 164 32 L164 63 Z" fill="#9ec8e0" opacity="0.82" />
-        <path d="M220 63 Q200 36 176 32 L176 63 Z" fill="#9ec8e0" opacity="0.82" />
-        <rect x="167" y="32" width="6" height="31" fill="#9ec8e0" opacity="0.82" />
-        {/* Wheels */}
-        <circle cx="88" cy="130" r="24" fill="#111" />
-        <circle cx="88" cy="130" r="14" fill="#444" />
-        <circle cx="88" cy="130" r="6" fill="#888" />
-        <circle cx="252" cy="130" r="24" fill="#111" />
-        <circle cx="252" cy="130" r="14" fill="#444" />
-        <circle cx="252" cy="130" r="6" fill="#888" />
-        {/* Headlights */}
-        <ellipse cx="311" cy="100" rx="7" ry="4" fill="#fffbe0" opacity="0.85" />
-        <ellipse cx="29" cy="100" rx="7" ry="4" fill="#fffbe0" opacity="0.85" />
-        {/* Grille */}
-        <rect x="295" y="107" width="18" height="10" rx="2" fill="#111" opacity="0.45" />
-        <rect x="27" y="107" width="18" height="10" rx="2" fill="#111" opacity="0.45" />
-        {/* Door line */}
-        <line x1="165" y1="65" x2="162" y2="128" stroke="rgba(255,255,255,0.13)" strokeWidth="1.5" />
-        <line x1="175" y1="65" x2="178" y2="128" stroke="rgba(255,255,255,0.13)" strokeWidth="1.5" />
-        {/* Shine */}
-        <path d="M122 70 Q155 55 200 53" stroke="rgba(255,255,255,0.28)" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-        {/* City silhouette bg */}
-        <rect x="60" y="55" width="8" height="30" fill="rgba(200,200,200,0.13)" />
-        <rect x="72" y="45" width="6" height="40" fill="rgba(200,200,200,0.10)" />
-        <rect x="255" y="50" width="7" height="35" fill="rgba(200,200,200,0.10)" />
-        <rect x="266" y="40" width="5" height="45" fill="rgba(200,200,200,0.13)" />
-    </svg>
-);
+const formatMoney = (value) => (value ?? 0).toLocaleString("ru-RU");
 
-const gifts = [
-    { icon: "🔧", label: "Оборудование в подарок" },
-    { icon: "🛡️", label: "КАСКО в подарок" },
-    { icon: "🔘", label: "Комплект резины в подарок" },
-];
-
-const formatMoney = (value) => value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-
-const cars = db.cars.slice(0, 12).map((car) => {
-    const [brand, ...rest] = car.name.split(" ");
-    return {
-        ...car,
-        brand,
-        model: rest.join(" ") || car.name,
-        credit: Math.max(12000, Math.round(car.price * 0.045)),
-        discount: 300000,
-        specs: [
-            { icon: "⚙️", label: car.korobka || "Автомат" },
-            { icon: "🚘", label: car.kuzov || "Седан" },
-            { icon: "🛠️", label: car.dvigatel || "2.0L" },
-            { icon: "📄", label: "ПТС в наличии" },
-        ],
-    };
+const cars = (db.cars || []).filter(Boolean).slice(0, 12).map((car) => {
+  let brand = car.brand;
+  let model = car.model;
+  if (!brand && car.name) {
+    const [first, ...rest] = car.name.split(" ");
+    brand = first;
+    model = rest.join(" ") || car.name;
+  }
+  const img = car.img || car.image;
+  const credit = car.credit ?? Math.max(12000, Math.round((car.price || 0) * 0.045));
+  return {
+    ...car,
+    brand,
+    model,
+    img,
+    credit,
+    discount: 300000,
+    specs: [
+      { label: car.korobka || car.transmission || "Автомат" },
+      { label: car.kuzov || car.spec || "Седан" },
+      { label: car.dvigatel || car.fuel || "2.0L" },
+      { label: "ПТС в наличии" },
+    ],
+  };
 });
 
 function CarCard({ car, featured }) {
-    const [liked, setLiked] = useState(false);
-    const [compared, setCompared] = useState(false);
+  const [liked, setLiked] = useState(false);
+  const [compared, setCompared] = useState(false);
 
-    return (
-        <div
-            className={`bg-white rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-2xl ${featured
-                    ? "ring-2 ring-purple-500 shadow-xl scale-[1.01]"
-                    : "shadow-md hover:scale-[1.01]"
-                }`}
-        >
-            {/* Header */}
-            <div className="p-4 pb-2">
-                <div className="flex justify-between items-start">
-                    <div>
-                        <div className="text-black text-sm">{car.brand}</div>
-                        <div className="font-bold text-black text-base leading-tight">{car.model}</div>
-                    </div>
-                    <div className="flex gap-2 text-gray-400">
-                        <button
-                            onClick={() => setLiked(!liked)}
-                            className={`text-lg transition ${liked ? "text-red-500" : "hover:text-red-400"}`}
-                        >♡</button>
-                        <button
-                            onClick={() => setCompared(!compared)}
-                            className={`text-lg transition ${compared ? "text-blue-500" : "hover:text-blue-400"}`}
-                        >⊘</button>
-                    </div>
-                </div>
+  return (
+    <div
+      className={`group relative bg-white rounded-2xl overflow-hidden flex flex-col transition-all duration-300
+        ${featured
+          ? "shadow-2xl ring-2 ring-red-500 scale-[1.02]"
+          : "shadow-md hover:shadow-xl hover:-translate-y-1"
+        }`}
+    >
+      {/* Image */}
+      <div className="relative h-52 overflow-hidden bg-gray-100">
+        <img
+          src={car.img}
+          alt={car.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          onError={(e) => {
+            e.target.src = "https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80";
+          }}
+        />
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
-                {/* Badges */}
-                <div className="flex gap-2 mt-2 flex-wrap">
-                    <span className="bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded">Предложение дня</span>
-                    <span className="bg-red-100 text-red-700 text-xs font-semibold px-2 py-0.5 rounded">
-                        Выгода до {car.discount} ₽
-                    </span>
-                </div>
-            </div>
-
-            {/* Image + gifts */}
-            <div className="relative px-4 pt-2">
-                {/* Gifts */}
-                <div className="absolute left-4 top-4 z-10 flex flex-col gap-2">
-                    {gifts.map((g, i) => (
-                        <div key={i} className="flex items-center gap-1 bg-red-600 text-white text-[10px] font-semibold px-2 py-1 rounded-lg shadow-lg">
-                            <span>{g.icon}</span>
-                            <span className="leading-tight">{g.label}</span>
-                        </div>
-                    ))}
-                </div>
-
-                {/* Car image */}
-                <div className="overflow-hidden rounded-[28px] shadow-xl mt-3">
-                    <img src={car.img} alt={car.name} className="w-full h-56 object-cover" />
-                </div>
-            </div>
-
-            {/* Price */}
-            <div className="px-4 pt-4 pb-1 flex flex-col gap-1">
-                <div className="text-xs text-gray-500">от {formatMoney(car.price)} ₽</div>
-                <div className="text-lg font-bold text-gray-900">Кредит от {formatMoney(car.credit)} ₽/мес.</div>
-            </div>
-
-            {/* Specs */}
-            <div className="px-4 pb-3 grid grid-cols-2 gap-3 text-xs text-gray-600">
-                {car.specs.map((s, i) => (
-                    <div key={i} className="flex items-center gap-2 bg-gray-50 rounded-2xl px-3 py-2">
-                        <span>{s.icon}</span>
-                        <span>{s.label}</span>
-                    </div>
-                ))}
-            </div>
-
-            {/* Buttons */}
-            <div className="px-4 pb-4 flex gap-0 mt-auto">
-                <button className="bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-4 py-2 rounded-l-full transition flex-1">
-                    Резерв онлайн
-                </button>
-                <button className="bg-gray-800 hover:bg-gray-900 text-white text-xs font-semibold px-4 py-2 transition flex-1">
-                    Купить
-                </button>
-                <button className="bg-gray-700 hover:bg-gray-800 text-white text-xs font-semibold px-4 py-2 rounded-r-full transition flex-1">
-                    Подробнее
-                </button>
-            </div>
+        {/* Top badges */}
+        <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+          <span className="bg-red-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wide shadow-lg">
+            Предложение дня
+          </span>
+          <span className="bg-white/90 backdrop-blur-sm text-red-600 text-[10px] font-bold px-2.5 py-1 rounded-full shadow">
+            −{formatMoney(car.discount)} ₽
+          </span>
         </div>
-    );
+
+        {/* Action buttons */}
+        <div className="absolute top-3 right-3 flex flex-col gap-2">
+          <button
+            onClick={() => setLiked(!liked)}
+            className={`w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm border transition-all shadow
+              ${liked ? "bg-red-500 border-red-500 text-white" : "bg-white/80 border-white/50 text-gray-600 hover:bg-red-50 hover:border-red-300"}`}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={liked ? "currentColor" : "none"} stroke="currentColor" strokeWidth={2} className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+            </svg>
+          </button>
+          <button
+            onClick={() => setCompared(!compared)}
+            className={`w-8 h-8 rounded-full flex items-center justify-center backdrop-blur-sm border transition-all shadow
+              ${compared ? "bg-blue-500 border-blue-500 text-white" : "bg-white/80 border-white/50 text-gray-600 hover:bg-blue-50 hover:border-blue-300"}`}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Bottom price overlay */}
+        <div className="absolute bottom-0 left-0 right-0 px-4 py-3">
+          <p className="text-white/70 text-xs">от</p>
+          <p className="text-white font-black text-xl leading-tight">{formatMoney(car.price)} ₽</p>
+          <p className="text-red-300 text-xs font-medium">Кредит от {formatMoney(car.credit)} ₽/мес</p>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-4">
+        <div className="mb-3">
+          <p className="text-gray-400 text-xs font-medium uppercase tracking-wider">{car.brand}</p>
+          <h3 className="text-gray-900 font-black text-base leading-tight">{car.model}</h3>
+        </div>
+
+        {/* Specs */}
+        <div className="grid grid-cols-2 gap-1.5 mb-4">
+          {car.specs.map((s, i) => (
+            <div key={i} className="bg-gray-50 border border-gray-100 rounded-xl px-3 py-1.5 text-xs text-gray-600 font-medium flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
+              {s.label}
+            </div>
+          ))}
+        </div>
+
+        {/* Buttons */}
+        <div className="mt-auto flex gap-2">
+          <button className="flex-1 bg-red-600 hover:bg-red-700 active:scale-95 text-white text-xs font-bold py-2.5 rounded-xl transition-all shadow-sm shadow-red-200">
+            Узнать цену
+          </button>
+          <button className="flex-1 bg-gray-900 hover:bg-gray-800 active:scale-95 text-white text-xs font-semibold py-2.5 rounded-xl transition-all">
+            Подробнее
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default function CarCatalog() {
-    const [visibleCount, setVisibleCount] = useState(6);
+  const [visibleCount, setVisibleCount] = useState(6);
 
-    return (
-        <div className="bg-gray-50 min-h-screen py-10 px-4">
-            <h2 className="text-center text-2xl font-bold text-gray-900 mb-8">
-                Автомобили в наличии с ПТС
-            </h2>
-
-            <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {cars.slice(0, visibleCount).map((car, idx) => (
-                    <CarCard key={idx} car={car} featured={idx === 1} />
-                ))}
-            </div>
-
-            {visibleCount < cars.length && (
-                <div className="flex justify-center mt-10">
-                    <button
-                        onClick={() => setVisibleCount((v) => Math.min(cars.length, v + 3))}
-                        className="bg-red-600 hover:bg-red-700 text-white font-bold px-16 py-3 rounded-lg transition shadow-lg hover:shadow-red-200 active:scale-95 text-sm tracking-widest"
-                    >
-                        ПОКАЗАТЬ ЕЩЁ
-                    </button>
-                </div>
-            )}
+  return (
+    <section className="bg-gray-50 py-14 px-4">
+      {/* Section header */}
+      <div className="max-w-6xl mx-auto mb-10 flex items-end justify-between">
+        <div>
+          <p className="text-red-600 text-sm font-bold uppercase tracking-widest mb-1">В наличии</p>
+          <h2 className="text-3xl font-black text-gray-900">Автомобили с ПТС</h2>
+          <p className="text-gray-500 text-sm mt-1">{cars.length} автомобилей готовы к выдаче сегодня</p>
         </div>
-    );
+        <a href="/katalog" className="hidden sm:flex items-center gap-1.5 text-sm font-semibold text-gray-700 hover:text-red-600 transition border border-gray-200 hover:border-red-300 px-4 py-2 rounded-xl">
+          Все авто
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4">
+            <path fillRule="evenodd" d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z" clipRule="evenodd" />
+          </svg>
+        </a>
+      </div>
+
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {cars.slice(0, visibleCount).map((car, idx) => (
+          <CarCard key={car.id || idx} car={car} featured={idx === 1} />
+        ))}
+      </div>
+
+      {visibleCount < cars.length && (
+        <div className="flex justify-center mt-10">
+          <button
+            onClick={() => setVisibleCount((v) => Math.min(cars.length, v + 3))}
+            className="group inline-flex items-center gap-2 bg-gray-900 hover:bg-red-600 text-white font-bold px-10 py-3.5 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-red-200 active:scale-95 text-sm tracking-widest"
+          >
+            ПОКАЗАТЬ ЕЩЁ
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 transition-transform group-hover:translate-y-0.5">
+              <path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      )}
+    </section>
+  );
 }

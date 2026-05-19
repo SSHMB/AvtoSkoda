@@ -206,12 +206,17 @@ export default function AbcAuto() {
 
         {/* Sub nav */}
         <div className="hidden lg:flex max-w-7xl mx-auto mt-2 gap-6 text-sm border-t pt-2 items-center">
-          {["КАТАЛОГ АВТО ▾", "АВТО С ПРОБЕГОМ ▾", "КРЕДИТ И РАССРОЧКА ▾", "СПЕЦПРЕДЛОЖЕНИЯ ▾", "ТАКСИ В КРЕДИТ"].map((n) => (
-            <a key={n} href="#" className="hover:text-red-600 text-gray-700 transition font-medium whitespace-nowrap">{n}</a>
+          {[
+            { label: "КАТАЛОГ АВТО", to: "/katalog" },
+            { label: "АВТО С ПРОБЕГОМ", to: "/probeg" },
+            { label: "КРЕДИТ И РАССРОЧКА", to: "/credit" },
+            { label: "СПЕЦПРЕДЛОЖЕНИЯ", to: "/spets" },
+            { label: "ТАКСИ В КРЕДИТ", to: "/taksi" },
+          ].map((n) => (
+            <Link key={n.to} to={n.to} className="hover:text-red-600 text-gray-700 transition font-medium whitespace-nowrap">{n.label}</Link>
           ))}
           <div className="ml-auto flex items-center gap-3 text-gray-600">
-            <span className="cursor-pointer hover:text-red-600">♡ <sup className="text-red-600 font-bold">10</sup></span>
-            <span className="cursor-pointer hover:text-red-600">🛒 <sup className="text-red-600 font-bold">12</sup></span>
+            <Link to="/izbrannoe" className="cursor-pointer hover:text-red-600">♡ <sup className="text-red-600 font-bold">10</sup></Link>
             <span className="cursor-pointer hover:text-red-600">🔍</span>
           </div>
         </div>
@@ -384,6 +389,7 @@ export default function AbcAuto() {
         }
       `}</style>
 
+      <CarCatalog />
       <Collections />
       <div id="company" className="scroll-mt-24">
         <PromoBannerDaisy />
