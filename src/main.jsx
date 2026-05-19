@@ -8,13 +8,15 @@ import {
 import App from './App.jsx'
 import Home from './Pages/Home.jsx'
 import CreditFinancePage from './Pages/CreditFinancePage.jsx'
-import Erorr from './Pages/Erorr.jsx'
+import Error404 from './error404.jsx'
+import BrandDetail from './Components/BrandDetail.jsx'
+import CollectionDetail from './Components/CollectionDetail.jsx'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <Erorr />,
+    errorElement: <Error404 />,
     children: [
       {
         index: true,
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: 'credit',
         element: <CreditFinancePage />,
+      },
+      {
+        path: 'brand/:brandName',
+        element: <BrandDetail />,
+      },
+      {
+        path: 'collections/:collectionId',
+        element: <CollectionDetail />,
       },
     ],
   },

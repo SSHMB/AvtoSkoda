@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo1 1 (1).png';
 import group from '../assets/Group.png';
 import db from '../db.json';
@@ -146,11 +147,11 @@ export default function CreditFinancePage() {
       <header className="w-full bg-white shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between text-sm font-semibold text-gray-800">
           <nav className="flex gap-10">
-            <a href="/">КАТАЛОГ АВТО</a>
-            <a href="/">АВТО С ПРОБЕГОМ</a>
-            <a href="/credit">КРЕДИТ И РАССРОЧКА</a>
-            <a href="/">СПЕЦПРЕДЛОЖЕНИЯ</a>
-            <a href="/">ТАКСИ В КРЕДИТ</a>
+            <Link to="/">КАТАЛОГ АВТО</Link>
+            <Link to="/">АВТО С ПРОБЕГОМ</Link>
+            <Link to="/credit">КРЕДИТ И РАССРОЧКА</Link>
+            <Link to="/">СПЕЦПРЕДЛОЖЕНИЯ</Link>
+            <Link to="/">ТАКСИ В КРЕДИТ</Link>
           </nav>
           <div className="flex gap-5 text-xl">
             <span>♡</span><span>🛒</span><span>⌕</span>
@@ -295,7 +296,7 @@ export default function CreditFinancePage() {
                       <button
                         key={b.key}
                         onClick={() => setSelectedBank(b.key)}
-                        className={`px - 4 py - 2 rounded - lg border text - xs font - bold transition - all ${selectedBank === b.key
+                        className={`px-4 py-2 rounded-lg border text-xs font-bold transition-all ${selectedBank === b.key
                           ? `border-${b.color}-600 bg-${b.color}-50 text-${b.color}-700`
                           : 'border-gray-200 bg-gray-50'
                           }`}
@@ -352,7 +353,7 @@ export default function CreditFinancePage() {
                 </label>
               </div>
 
-              <div className={`grid grid - cols - 1 md: grid - cols - 2 gap - 4 transition - opacity duration - 300 ${tradeInEnabled ? 'opacity-100' : 'opacity-40 pointer-events-none'}`}>
+              <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 transition-opacity duration-300 ${tradeInEnabled ? 'opacity-100' : 'opacity-40 pointer-events-none'}`}>
                 {/* Марка */}
                 <Select value={tradeInBrand} onChange={handleTradeInBrandChange} placeholder="Марка">
                   {cars.map(c => <option key={c.brand} value={c.brand}>{c.brand}</option>)}
@@ -543,13 +544,13 @@ function Select({ value, onChange, placeholder, children, disabled = false, high
         value={value}
         onChange={e => onChange(e.target.value)}
         disabled={disabled}
-        className={`w - full bg - white rounded - lg p - 3 pr - 10 appearance - none text - gray - 700 focus: outline - none disabled: opacity - 40 disabled: cursor - not - allowed ${highlighted ? 'border-2 border-blue-500' : 'border border-gray-200'
+        className={`w-full bg-white rounded-lg p-3 pr-10 appearance-none text-gray-700 focus:outline-none disabled:opacity-40 disabled:cursor-not-allowed ${highlighted ? 'border-2 border-blue-500' : 'border border-gray-200'
           }`}
       >
         <option value="">{placeholder}</option>
         {children}
       </select>
-      <div className={`absolute inset - y - 0 right - 3 flex items - center pointer - events - none text - xs ${highlighted ? 'text-blue-500' : 'text-gray-400'}`}>▼</div>
+      <div className={`absolute inset-y-0 right-3 flex items-center pointer-events-none text-xs ${highlighted ? 'text-blue-500' : 'text-gray-400'}`}>▼</div>
     </div>
   );
 }

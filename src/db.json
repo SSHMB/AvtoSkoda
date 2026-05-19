@@ -462,6 +462,15 @@
       "rating": 4,
       "text": "juda yaxshi sayt",
       "date": "2026-05-14"
+    },
+    {
+      "id": 1779175708022,
+      "title": "Сайт отзывов",
+      "subtitle": "Skoda",
+      "recommend": 95,
+      "rating": 5,
+      "text": "Juda Yoqdi ",
+      "date": "2026-05-19"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
