@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Heart,
   GitCompare,
@@ -15,49 +16,47 @@ import {
   CheckCircle,
   ArrowRight,
   X,
-  SlidersHorizontal
 } from "lucide-react";
 
 const BRANDS = [
-  { name: "Kia",        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBCmK-ot2oK_nqlmYfAnTkzvS91ViUY2-qJw&s" },
-  { name: "Brilliance",    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQedGhObyImCdyTz04Pk-i3gWchd3XBzC3m6Q&shttps://logos-world.net/wp-content/uploads/2021/08/Brilliance-Logo.png" },
-  { name: "Citroen",      logo: "https://thumbs.dreamstime.com/z/citroen-logo-editorial-illustrative-white-background-logo-icon-vector-logos-icons-set-social-media-flat-banner-vectors-svg-eps-210441874.jpg" },
+  { name: "Kia", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBCmK-ot2oK_nqlmYfAnTkzvS91ViUY2-qJw&s" },
+  { name: "Brilliance", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQedGhObyImCdyTz04Pk-i3gWchd3XBzC3m6Q&s" },
+  { name: "Citroen", logo: "https://thumbs.dreamstime.com/z/citroen-logo-editorial-illustrative-white-background-logo-icon-vector-logos-icons-set-social-media-flat-banner-vectors-svg-eps-210441874.jpg" },
   { name: "Ford", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY5ybJ3BnhnTG99W_YbQb8_KyuMHHx9MZkQw&s" },
-  { name: "Haima",     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6G0WDVGY2-7aXihJ-5jJyUhg3lM-bdNdXg&s" },
+  { name: "Haima", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR6G0WDVGY2-7aXihJ-5jJyUhg3lM-bdNdXg&s" },
   { name: "Lifan", logo: "https://koleso.ru/articles/wp-content/uploads/2023/07/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0-2.jpg" },
-  { name: "Peugeot",    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Peugeot_2021_Logo.svg/1280px-Peugeot_2021_Logo.svg.png" },
-  { name: "UAZ",      logo: "https://cdn.worldvectorlogo.com/logos/uaz.svg" },
+  { name: "Peugeot", logo: "https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Peugeot_2021_Logo.svg/1280px-Peugeot_2021_Logo.svg.png" },
+  { name: "UAZ", logo: "https://cdn.worldvectorlogo.com/logos/uaz.svg" },
   { name: "Hyundai", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_I1YnqSct9R9IKSxRQdj9ZeES5B6Tgar1Sg&s" },
-  { name: "Changan",  logo: "https://i.pinimg.com/736x/29/ca/d0/29cad0b32b66a34dcacc0094b8948e2a.jpg" },
-  { name: "Datsun",    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqMuZ2DgKoIiWg14RhQZD_yE2aTFT3l5hmEQ&s" },
-  { name: "Foton",     logo: "https://1000logos.net/wp-content/uploads/2021/01/Foton-emblem.png" },
-  { name: "Haval",   logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDa5ZXH31ZU-LvHgOeaAvhDRRVtxg5Q89oDA&s" },
-  { name: "Mazda",   logo: "https://logos-world.net/wp-content/uploads/2020/05/Mazda-Logo.png" },
-  { name: "Ravon",        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGNOtQrXjpFf2a_BsC93ew6VBhtjNdDn6XFw&s" },
-  { name: "Zotye",       logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqroYbCD3U9s6xxomYcBdVJAhqXF-dtkgyQ&s" },
-  { name: "Skoda",      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ByNtlXDYZrQ8A2z59C43R1_447nBTaSkfQ&s" },
-  { name: "Chery",        logo: "https://cdn.renderhub.com/3d-logoman/chery-logo-1/chery-logo-1-01.jpg" },
-  { name: "Dongfeng",      logo: "https://koleso.ru/articles/wp-content/uploads/2023/07/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0-5.jpg" },
+  { name: "Changan", logo: "https://i.pinimg.com/736x/29/ca/d0/29cad0b32b66a34dcacc0094b8948e2a.jpg" },
+  { name: "Datsun", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqMuZ2DgKoIiWg14RhQZD_yE2aTFT3l5hmEQ&s" },
+  { name: "Foton", logo: "https://1000logos.net/wp-content/uploads/2021/01/Foton-emblem.png" },
+  { name: "Haval", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDa5ZXH31ZU-LvHgOeaAvhDRRVtxg5Q89oDA&s" },
+  { name: "Mazda", logo: "https://logos-world.net/wp-content/uploads/2020/05/Mazda-Logo.png" },
+  { name: "Ravon", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGNOtQrXjpFf2a_BsC93ew6VBhtjNdDn6XFw&s" },
+  { name: "Zotye", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKqroYbCD3U9s6xxomYcBdVJAhqXF-dtkgyQ&s" },
+  { name: "Skoda", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ByNtlXDYZrQ8A2z59C43R1_447nBTaSkfQ&s" },
+  { name: "Chery", logo: "https://cdn.renderhub.com/3d-logoman/chery-logo-1/chery-logo-1-01.jpg" },
+  { name: "Dongfeng", logo: "https://koleso.ru/articles/wp-content/uploads/2023/07/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0-5.jpg" },
   { name: "GAC", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTij_IZhkIYTlR6sCOeAoaGVcdboeBfzfoRTg&s" },
-  { name: "Honda",      logo: "https://i.pinimg.com/736x/da/9c/a5/da9ca5610b6a94b59294e9cc37657cb1.jpg" },
-  { name: "Mitsubishi",      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mitsubishi_logo.svg/960px-Mitsubishi_logo.svg.png" },
-  { name: "Renault",      logo: "https://1000logos.net/wp-content/uploads/2021/03/Renault-logo.png" },
-  { name: "Volkswagen",        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRMp83COMkOw05zlNZ1xF602rs6Z2fhvzhew&s" },
-  { name: "CheryExeed",       logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThfd_aLx13_8THNtRKodLbMdqOyJoUAiACHA&s" },
-  { name: "DW Hower",      logo: "https://www.hower-nsk.ru/wp-content/themes/hower/img/logo_w_1422.png" },
-  { name: "Geely",      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqUjssr17PTEFS8UkF1-KV09rSRm_aXQjR3w&s" },
+  { name: "Honda", logo: "https://i.pinimg.com/736x/da/9c/a5/da9ca5610b6a94b59294e9cc37657cb1.jpg" },
+  { name: "Mitsubishi", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Mitsubishi_logo.svg/960px-Mitsubishi_logo.svg.png" },
+  { name: "Renault", logo: "https://1000logos.net/wp-content/uploads/2021/03/Renault-logo.png" },
+  { name: "Volkswagen", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRMp83COMkOw05zlNZ1xF602rs6Z2fhvzhew&s" },
+  { name: "CheryExeed", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThfd_aLx13_8THNtRKodLbMdqOyJoUAiACHA&s" },
+  { name: "DW Hower", logo: "https://www.hower-nsk.ru/wp-content/themes/hower/img/logo_w_1422.png" },
+  { name: "Geely", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqUjssr17PTEFS8UkF1-KV09rSRm_aXQjR3w&s" },
   { name: "JAC", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqrWR_208fOakkYaEJocw5U3tMZhgmRRnIAg&s" },
-  { name: "Nissan",     logo: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Nissan_logo.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" },
-  { name: "SsangYong",       logo: "https://w7.pngwing.com/pngs/945/584/png-transparent-ssangyong-motor-ssangyong-rexton-car-ssangyong-korando-car-text-logo-vehicle-thumbnail.png" },
-  { name: "Toyota",    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnG49Ht9722p0eCdIwm0YoZj0IGBzmI5D49Q&s" },
-  { name: "Chevrolet",      logo: "https://logos-world.net/wp-content/uploads/2021/03/Chevrolet-Logo.png" },
-  { name: "FAW",    logo: "https://upload.wikimedia.org/wikipedia/ru/d/dd/FAW_%28%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4%29.png?utm_source=ru.wikipedia.org&utm_campaign=index&utm_content=original" },
-  { name: "Great Wall",  logo: "https://i.pinimg.com/736x/14/52/c9/1452c93bda830f1364b950533deca6e5.jpg" },
-  { name: "Lada",     logo: "https://cdn.worldvectorlogo.com/logos/lada-logo.svg" },
-  { name: "Opel",        logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Opel-Logo_2017.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original" },
-  { name: "Suzuki",      logo: "https://www.globalsuzuki.com/globalnews/2025/img/0922.jpg" },
+  { name: "Nissan", logo: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Nissan_logo.jpg" },
+  { name: "SsangYong", logo: "https://w7.pngwing.com/pngs/945/584/png-transparent-ssangyong-motor-ssangyong-rexton-car-ssangyong-korando-car-text-logo-vehicle-thumbnail.png" },
+  { name: "Toyota", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnG49Ht9722p0eCdIwm0YoZj0IGBzmI5D49Q&s" },
+  { name: "Chevrolet", logo: "https://logos-world.net/wp-content/uploads/2021/03/Chevrolet-Logo.png" },
+  { name: "FAW", logo: "https://upload.wikimedia.org/wikipedia/ru/d/dd/FAW_%28%D0%B7%D0%B0%D0%B2%D0%BE%D0%B4%29.png" },
+  { name: "Great Wall", logo: "https://i.pinimg.com/736x/14/52/c9/1452c93bda830f1364b950533deca6e5.jpg" },
+  { name: "Lada", logo: "https://cdn.worldvectorlogo.com/logos/lada-logo.svg" },
+  { name: "Opel", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Opel-Logo_2017.png" },
+  { name: "Suzuki", logo: "https://www.globalsuzuki.com/globalnews/2025/img/0922.jpg" },
 ];
-
 
 const FOOTER_LINKS = {
   "КАТАЛОГ АВТО": ["Все", "Hyundai", "Kia", "Volkswagen", "Skoda", "Audi", "BMW"],
@@ -95,10 +94,7 @@ function BrandLogo({ brand, active, onClick }) {
           e.target.nextSibling.style.display = "block";
         }}
       />
-      <span
-        className="text-[10px] font-bold text-gray-700 hidden"
-        style={{ display: "none" }}
-      >
+      <span className="text-[10px] font-bold text-gray-700 hidden" style={{ display: "none" }}>
         {brand.name.substring(0, 2).toUpperCase()}
       </span>
       <span className="text-[10px] text-gray-500 leading-none">{brand.name}</span>
@@ -123,9 +119,16 @@ function CarSpec({ icon: Icon, label }) {
   );
 }
 
-function CarCard({ car }) {
-  const [liked, setLiked] = useState(false);
+function CarCard({ car, onLikeToggle, initialLiked }) {
+  // ✅ localStorage dan boshlang'ich liked holat
+  const [liked, setLiked] = useState(initialLiked);
   const [compared, setCompared] = useState(false);
+
+  const handleLike = () => {
+    const newLiked = !liked;
+    setLiked(newLiked);
+    onLikeToggle(car, newLiked);
+  };
 
   return (
     <div className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
@@ -144,16 +147,22 @@ function CarCard({ car }) {
           </div>
           <div className="absolute top-2 right-2 flex gap-1">
             <button
-              onClick={() => setLiked(!liked)}
+              onClick={handleLike}
               className={`w-7 h-7 rounded-full flex items-center justify-center border transition-all
-                ${liked ? "bg-red-500 border-red-500 text-white" : "bg-white border-gray-300 text-gray-400 hover:border-red-400"}`}
+                ${liked
+                  ? "bg-red-500 border-red-500 text-white"
+                  : "bg-white border-gray-300 text-gray-400 hover:border-red-400"
+                }`}
             >
               <Heart size={13} fill={liked ? "currentColor" : "none"} />
             </button>
             <button
               onClick={() => setCompared(!compared)}
               className={`w-7 h-7 rounded-full flex items-center justify-center border transition-all
-                ${compared ? "bg-blue-500 border-blue-500 text-white" : "bg-white border-gray-300 text-gray-400 hover:border-blue-400"}`}
+                ${compared
+                  ? "bg-blue-500 border-blue-500 text-white"
+                  : "bg-white border-gray-300 text-gray-400 hover:border-blue-400"
+                }`}
             >
               <GitCompare size={13} />
             </button>
@@ -201,9 +210,36 @@ function CarCard({ car }) {
 }
 
 export default function AbcAutoCatalog({ cars = [] }) {
+  const navigate = useNavigate();
   const [activeBrand, setActiveBrand] = useState(null);
   const [priceMax, setPriceMax] = useState(500000);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  // ✅ localStorage dan o'qib boshlanadi
+  const [likedCars, setLikedCars] = useState(() => {
+    return JSON.parse(localStorage.getItem("likedCars") || "[]");
+  });
+
+  // ✅ cartCount ham localStorage dan
+  const [cartCount, setCartCount] = useState(() => {
+    return JSON.parse(localStorage.getItem("likedCars") || "[]").length;
+  });
+
+  const handleLikeToggle = (car, isLiked) => {
+    setLikedCars((prev) => {
+      const updated = isLiked
+        ? [...prev, car]
+        : prev.filter((c) => c.id !== car.id);
+      // ✅ localStorage ga saqlanadi
+      localStorage.setItem("likedCars", JSON.stringify(updated));
+      setCartCount(updated.length);
+      return updated;
+    });
+  };
+
+  const goToIzbrannoe = () => {
+    navigate("/izbrannoe");
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
@@ -233,7 +269,7 @@ export default function AbcAutoCatalog({ cars = [] }) {
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center gap-6">
           <div className="flex items-center gap-2 flex-shrink-0">
             <div className="w-9 h-9 bg-red-600 rounded flex items-center justify-center">
-              <span className="text-white font-black text-xs leading-none text-center">ABC<br/>AUTO</span>
+              <span className="text-white font-black text-xs leading-none text-center">ABC<br />AUTO</span>
             </div>
             <div className="hidden sm:block">
               <p className="text-xs font-black tracking-widest text-gray-900 leading-none">ABC AUTO</p>
@@ -253,12 +289,20 @@ export default function AbcAutoCatalog({ cars = [] }) {
             <button className="text-gray-600 hover:text-red-600 transition-colors">
               <Search size={18} />
             </button>
-            <button className="relative text-gray-600 hover:text-red-600 transition-colors">
+
+            {/* ✅ Savatcha tugmasi */}
+            <button
+              onClick={goToIzbrannoe}
+              className="relative text-gray-600 hover:text-red-600 transition-colors"
+            >
               <ShoppingCart size={18} />
-              <span className="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
-                2
-              </span>
+              {cartCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
             </button>
+
             <button className="hidden sm:flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-bold px-3 py-2 rounded transition-colors">
               <CreditCard size={13} />
               <span>КУПИТЬ В КРЕДИТ</span>
@@ -310,9 +354,7 @@ export default function AbcAutoCatalog({ cars = [] }) {
           </div>
 
           <div className="bg-white rounded-lg border border-gray-200 p-4">
-            <h3 className="font-bold text-gray-900 text-base mb-4">
-              Быстрый подбор авто
-            </h3>
+            <h3 className="font-bold text-gray-900 text-base mb-4">Быстрый подбор авто</h3>
             <div className="space-y-4">
               <div>
                 <div className="flex items-center justify-between mb-2">
@@ -323,7 +365,6 @@ export default function AbcAutoCatalog({ cars = [] }) {
                       : (priceMax / 1000).toFixed(0) + "т"} ₽
                   </span>
                 </div>
-
                 <div className="relative mb-3">
                   <input
                     type="range"
@@ -341,8 +382,7 @@ export default function AbcAutoCatalog({ cars = [] }) {
                   <style>{`
                     input[type=range]::-webkit-slider-thumb {
                       -webkit-appearance: none;
-                      width: 18px;
-                      height: 18px;
+                      width: 18px; height: 18px;
                       border-radius: 50%;
                       background: #dc2626;
                       cursor: pointer;
@@ -350,8 +390,7 @@ export default function AbcAutoCatalog({ cars = [] }) {
                       box-shadow: 0 1px 4px rgba(0,0,0,0.25);
                     }
                     input[type=range]::-moz-range-thumb {
-                      width: 18px;
-                      height: 18px;
+                      width: 18px; height: 18px;
                       border-radius: 50%;
                       background: #dc2626;
                       cursor: pointer;
@@ -360,7 +399,6 @@ export default function AbcAutoCatalog({ cars = [] }) {
                     }
                   `}</style>
                 </div>
-
                 <div className="flex justify-between">
                   {[0, "500т", "800т", "1,1м", "1,4м", "1,7м", "2м", "2,3м", "2,7м", "3м"].map((label) => (
                     <span key={label} className="text-[9px] text-gray-400">{label}</span>
@@ -402,12 +440,17 @@ export default function AbcAutoCatalog({ cars = [] }) {
           <div className="text-center py-20 text-gray-400">
             <Search size={40} className="mx-auto mb-3 opacity-30" />
             <p className="font-medium text-sm">Машины не найдены</p>
-            <p className="text-xs mt-1">cars prop'ga massiv uzating</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
             {cars.map((car) => (
-              <CarCard key={car.id} car={car} />
+              <CarCard
+                key={car.id}
+                car={car}
+                // ✅ localStorage dagi liked holatni uzatamiz
+                initialLiked={likedCars.some((c) => c.id === car.id)}
+                onLikeToggle={handleLikeToggle}
+              />
             ))}
           </div>
         )}
@@ -422,14 +465,14 @@ export default function AbcAutoCatalog({ cars = [] }) {
         <div className="bg-white rounded-lg border border-gray-200 p-6 mb-12">
           <h2 className="text-xl font-black text-gray-900 mb-3">Заголовок</h2>
           <p className="text-sm text-gray-600 leading-relaxed mb-4">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
           </p>
           <h3 className="text-base font-bold text-gray-900 mb-2">Подзаголовок</h3>
           <p className="text-sm text-gray-600 leading-relaxed mb-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <p className="text-sm text-gray-600 leading-relaxed">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
           </p>
         </div>
       </main>
@@ -460,7 +503,7 @@ export default function AbcAutoCatalog({ cars = [] }) {
             </p>
             <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-2">
               <div className="flex">
-                {[1,2,3,4,5].map(i => (
+                {[1, 2, 3, 4, 5].map(i => (
                   <Star key={i} size={12} className="text-yellow-400" fill="currentColor" />
                 ))}
               </div>

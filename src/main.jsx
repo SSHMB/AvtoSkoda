@@ -4,8 +4,10 @@ import './index.css'
 import App from './App.jsx'
 import Home from './Pages/Home.jsx'
 import Katalokavto from './Pages/Katalokavto.jsx'
+import Izbrannoe from './Pages/Izbrannoe.jsx'
 import dbData from "./db.json";
 
+import CreditFinancePage from './Pages/CreditFinancePage.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -24,12 +26,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/credit',
-        element: <Home />,
-      },
+        element: <CreditFinancePage />,
+      },  
       {
         path: "/katalog",
         element: <Katalokavto cars={dbData.cars} />,
       },
+      {
+        path: "/izbrannoe",
+        element: <Izbrannoe />,
+      }
 
     ],
   },
